@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 from gcpconn import topFour
-#from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse
 
 app = FastAPI()
 
@@ -11,9 +11,9 @@ async def root():
     return {"Hi, this is Ruixin Lou"}
 
 
-@app.get("/topfour")
+@app.get("/topfour", response_class=PlainTextResponse)
 async def topfour():
-    """Print the top five ranking stackoverflow posts"""
+    """Print the top four ranking new positive rate, new hospitalization rate, and new death increase rate"""
 
     result = topFour()
     print(result)

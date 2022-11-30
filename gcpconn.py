@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 from google.oauth2 import service_account
 credentials = service_account.Credentials.from_service_account_file(
-'/app/utility-braid-367219-790a133797fb.json')
+'/workspaces/project4_RuixinLou/utility-braid-367219-790a133797fb.json')
 
 project_id = 'utility-braid-367219'
 client = bigquery.Client(credentials= credentials,project=project_id)
@@ -13,7 +13,7 @@ def topFour():
     ct.deaths_increase/nullif(ct.deaths_total, 0)*100 AS newdeath,
     ct.hospitalizations_increase/nullif(ct.hospitilzations_current, 0)*100 AS newhospitalization ,
     ct.date FROM `bigquery-public-data.covid19_covidtracking.summary` ct
-    order by date asc
+    order by date desc
     limit 4""")
 
     results = query_job.result()
