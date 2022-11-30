@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 from google.oauth2 import service_account
 credentials = service_account.Credentials.from_service_account_file(
-'/workspaces/project4_RuixinLou/utility-braid-367219-790a133797fb.json')
+'/app/utility-braid-367219-790a133797fb.json')
 
 project_id = 'utility-braid-367219'
 client = bigquery.Client(credentials= credentials,project=project_id)
